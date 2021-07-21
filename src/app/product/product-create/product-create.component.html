@@ -1,0 +1,33 @@
+<h1>Tạo sản phẩm mới</h1>
+<form [formGroup]="productForm" (ngSubmit)="submit()">
+  <table>
+    <tr>
+      <td>Mã sản phẩm:</td>
+      <td><input type="number" formControlName="id" required=""></td>
+      <br>
+      <span *ngIf="productForm.controls.id.invalid" class="errorMessage">*Cần phải nhập id</span>
+    </tr>
+    <tr>
+      <td>Tên sản phẩm:</td>
+      <td><input type="text" formControlName="name" required=""></td>
+      <br>
+      <span *ngIf="productForm.controls.name.invalid" class="errorMessage">*Cần phải nhập tên</span>
+    </tr>
+    <tr>
+      <td>Giá sản phẩm</td>
+      <td><input type="number" formControlName="price" required=""></td>
+      <br>
+      <span *ngIf="productForm.controls.price.invalid" class="errorMessage">*Cần phải nhập giá</span>
+    </tr>
+    <tr>
+      <td>Mô tả về sản phẩm</td>
+      <td><input type="text" formControlName="description" required=""></td>
+      <br>
+      <span *ngIf="productForm.controls.description.invalid" class="errorMessage">*Cần phải nhập mô tả</span>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button type="submit" [disabled]="!productForm.valid">Tạo mới</button></td>
+    </tr>
+  </table>
+</form>
